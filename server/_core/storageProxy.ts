@@ -10,8 +10,7 @@ export function registerStorageProxy(app: Express) {
     }
 
     if (!ENV.forgeApiUrl || !ENV.forgeApiKey) {
-      // Fallback for free deployment without env vars: serve a 1x1 transparent PNG
-      // to avoid 500 errors on images like the roadmap.
+      // Fallback for free deployment without env vars
       const isImage = /\.(png|jpg|jpeg|gif|svg|webp)$/i.test(key);
       if (isImage) {
         const placeholder = Buffer.from(
@@ -23,6 +22,56 @@ export function registerStorageProxy(app: Express) {
         res.send(placeholder);
         return;
       }
+
+      if (key === "korean-library-manifest_08aae5f0.json") {
+        const manifest = {
+          repository: "TRACE//LAB",
+          license: "AGPL-3.0",
+          notice: "Free deployment fallback manifest",
+          licenseText: "AGPL-3.0",
+          storageNotice: "Storage disabled in free mode",
+          bundleCount: 1,
+          defaultLanguage: "ko" as const,
+          items: [
+            {
+              id: "fallback-demo",
+              title: "데모 자료",
+              type: "개요",
+              tier: "Beginner",
+              summary: "환경변수 없이 동작하는 데모 자료입니다. 실제 자료는 Forge API가 설정된 후 볼 수 있습니다.",
+              sourcePath: "demo/fallback",
+              documentCount: 1,
+              sourceCount: 0,
+              bundleUrl: "/manus-storage/demo-bundle.json",
+            }
+          ]
+        };
+        res.set("Content-Type", "application/json");
+        res.set("Cache-Control", "no-store");
+        res.send(JSON.stringify(manifest));
+        return;
+      }
+
+      if (key === "demo-bundle.json") {
+        const bundle = {
+          id: "fallback-demo",
+          title: "데모 자료",
+          type: "개요",
+          tier: "Beginner",
+          sourcePath: "demo/fallback",
+          summary: "환경변수 없이 동작하는 데모 자료입니다.",
+          attribution: { repository: "TRACE//LAB", license: "AGPL-3.0", notice: "Demo" },
+          documents: [
+            { path: "README.md", title: "소개", content: "# 데모\n환경변수가 설정되지 않아 실제 자료를 불러올 수 없습니다.\n\n실제 학습 자료를 보려면 `BUILT_IN_FORGE_API_URL` 및 `BUILT_IN_FORGE_API_KEY` 를 설정하세요." }
+          ],
+          sourceFiles: []
+        };
+        res.set("Content-Type", "application/json");
+        res.set("Cache-Control", "no-store");
+        res.send(JSON.stringify(bundle));
+        return;
+      }
+
       res.status(404).send("Storage proxy not configured");
       return;
     }
