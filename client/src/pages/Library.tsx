@@ -31,8 +31,8 @@ import "../library-archive.css";
 import "../library-checklist.css";
 import "../library-practice-guide.css";
 
-const MANIFEST_URL = "/manus-storage/korean-library-manifest_08aae5f0.json";
-const SOURCE_PACKAGE_URL = "/manus-storage/dboan-agpl-source-package-final_d176918b.zip";
+const MANIFEST_URL = "/fallback-manifest.json";
+const SOURCE_PACKAGE_URL = "/fallback-bundle.json";
 
 type LibraryManifest = {
   repository: string;
