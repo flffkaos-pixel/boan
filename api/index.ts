@@ -1,11 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
-import { registerStorageProxy } from "./server/_core/storageProxy";
-import { registerOAuthRoutes } from "./server/_core/oauth";
-import { appRouter } from "./server/routers";
+import { registerStorageProxy } from "../server/_core/storageProxy";
+import { registerOAuthRoutes } from "../server/_core/oauth";
+import { appRouter } from "../server/routers";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { createContext } from "./server/_core/context";
+import { createContext } from "../server/_core/context";
 import net from "net";
 
 const app = express();
