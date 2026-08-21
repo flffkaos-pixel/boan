@@ -72,6 +72,32 @@ export function registerStorageProxy(app: Express) {
         return;
       }
 
+      if (key.endsWith(".json")) {
+        // Generic fallback for any other JSON bundle
+        const bundle = {
+          id: "fallback-generic",
+          title: "자료를 불러올 수 없습니다",
+          type: "개요",
+          tier: "Beginner",
+          sourcePath: "fallback",
+          summary: "Forge API가 설정되지 않아 자료를 불러올 수 없습니다.",
+          attribution: { repository: "TRACE//LAB", license: "AGPL-3.0", notice: "Demo" },
+          documents: [
+            { path: "README.md", title: "안내", content: "# 안내\n이 자료는 환경변수 설정 후 사용할 수 있습니다." }
+          ],
+          sourceFiles: []
+        };
+        res.set("Content-Type", "application/json");
+        res.set("Cache-Control", "no-store");
+        res.send(JSON.stringify(bundle));
+        return;
+      }
+
+      if (key.endsWith(".zip")) {
+        res.status(404).send("소스 패키지는 환경변수 설정 후 다운로드 가능합니다.");
+        return;
+      }
+
       res.status(404).send("Storage proxy not configured");
       return;
     }
