@@ -10,7 +10,20 @@ export function registerStorageProxy(app: Express) {
     }
 
     if (!ENV.forgeApiUrl || !ENV.forgeApiKey) {
-      res.status(500).send("Storage proxy not configured");
+      // Fallback for free deployment without env vars: serve a 1x1 transparent PNG
+      // to avoid 500 errors on images like the roadmap.
+      const isImage = /\.(png|jpg|jpeg|gif|svg|webp)$/i.test(key);
+      if (isImage) {
+        const placeholder = Buffer.from(
+          "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1YAAAAASUVORK5CYII=",
+          "base64"
+        );
+        res.set("Content-Type", "image/png");
+        res.set("Cache-Control", "no-store");
+        res.send(placeholder);
+        return;
+      }
+      res.status(404).send("Storage proxy not configured");
       return;
     }
 

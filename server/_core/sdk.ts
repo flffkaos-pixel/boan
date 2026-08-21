@@ -204,6 +204,12 @@ class SDKServer {
       return null;
     }
 
+    // If no JWT secret is configured (free deployment), skip verification
+    if (!ENV.cookieSecret) {
+      console.warn("[Auth] JWT_SECRET not configured, skipping session verification");
+      return null;
+    }
+
     try {
       const secretKey = this.getSessionSecret();
       const { payload } = await jwtVerify(cookieValue, secretKey, {
