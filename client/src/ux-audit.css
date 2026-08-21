@@ -1,0 +1,21 @@
+/*
+ * TRACE//LAB UI/UX audit layer: preserves the Signal Archive visual system while adding
+ * mobile touch reachability, robust keyboard feedback, and stable visual loading.
+ */
+body { overscroll-behavior-x: none; }
+
+.mobile-menu-button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; }
+.mobile-nav { gap: 8px; }
+.mobile-nav button, .mobile-nav a { min-height: 44px; padding: 11px 0; }
+
+.intro-layout h2,
+.section-heading-row h2,
+.roadmap-panel h2,
+.ethics-heading h2 { text-wrap: balance; }
+
+.filter-button { min-height: 44px; }
+.card-action { min-height: 44px; margin-top: 10px; }
+
+@media (max-width: 680px) {
+  .filter-button { padding: 0 10px; }
+}
