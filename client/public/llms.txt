@@ -1,0 +1,9 @@
+# TRACE//LAB | 프로젝트로 배우는 보안
+
+> TRACE//LAB은 프로젝트를 직접 따라 만들며 보안을 배우는 한국어 학습 기록실입니다.
+
+Canonical URL: https://tracelab-five.vercel.app
+Language: ko
+
+## Pages
+- https://tracelab-five.vercel.app/ : TRACE//LAB | 프로젝트로 배우는 보안
