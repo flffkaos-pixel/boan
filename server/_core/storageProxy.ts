@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 
 export function registerStorageProxy(app: Express) {
-  app.get("/manus-storage/*", async (req, res) => {
+  const handler = async (req: Parameters<Parameters<Express["get"]>[1]>[0], res: Parameters<Parameters<Express["get"]>[1]>[1]) => {
     const key = (req.params as Record<string, string>)[0];
     if (!key) {
       res.status(400).send("Missing storage key");
@@ -161,5 +161,8 @@ export function registerStorageProxy(app: Express) {
       console.error("[StorageProxy] failed:", err);
       res.status(502).send("Storage proxy error");
     }
-  });
+  };
+
+  app.get("/manus-storage/*", handler);
+  app.get("/api/manus-storage/*", handler);
 }
