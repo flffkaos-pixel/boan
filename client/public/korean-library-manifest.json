@@ -4,7 +4,7 @@
   "notice": "Free deployment 학습 자료",
   "licenseText": "AGPL-3.0",
   "storageNotice": "Storage disabled in free mode",
-  "bundleCount": 4,
+  "bundleCount": 1,
   "defaultLanguage": "ko",
   "items": [
     {
@@ -17,39 +17,6 @@
       "documentCount": 1,
       "sourceCount": 0,
       "bundleUrl": "/manus-storage/korean-cybersecurity-bundle.json"
-    },
-    {
-      "id": "kr-intro-001",
-      "title": "한글 기초 문법",
-      "type": "개요",
-      "tier": "Beginner",
-      "summary": "한글 자모와 기본 문법 패턴을 설명합니다.",
-      "sourcePath": "kr-intro",
-      "documentCount": 2,
-      "sourceCount": 1,
-      "bundleUrl": "/korean-library-bundle.json?id=kr-intro-001"
-    },
-    {
-      "id": "kr-vocab-001",
-      "title": "일상 어휘",
-      "type": "단어장",
-      "tier": "Elementary",
-      "summary": "일상에서 자주 쓰는 한국어 단어를 모았습니다.",
-      "sourcePath": "kr-vocab",
-      "documentCount": 5,
-      "sourceCount": 3,
-      "bundleUrl": "/korean-library-bundle.json?id=kr-vocab-001"
-    },
-    {
-      "id": "kr-exercise-001",
-      "title": "연습 문제",
-      "type": "문제풀이",
-      "tier": "Intermediate",
-      "summary": "학습 내용을 확인하는 연습 문제 모음입니다.",
-      "sourcePath": "kr-exercise",
-      "documentCount": 3,
-      "sourceCount": 2,
-      "bundleUrl": "/korean-library-bundle.json?id=kr-exercise-001"
     }
   ]
 }
