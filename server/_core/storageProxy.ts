@@ -1,5 +1,7 @@
 import type { Express } from "express";
 import { ENV } from "./env";
+import fs from "fs";
+import path from "path";
 
 export function registerStorageProxy(app: Express) {
   app.get("/manus-storage/*", async (req, res) => {
@@ -20,6 +22,24 @@ export function registerStorageProxy(app: Express) {
         res.set("Content-Type", "image/png");
         res.set("Cache-Control", "no-store");
         res.send(placeholder);
+        return;
+      }
+
+      if (key === "korean-library-manifest.json") {
+        const filePath = path.join(__dirname, "..", "..", "client", "public", "korean-library-manifest.json");
+        const data = readFileSync(filePath, "utf8");
+        res.set("Content-Type", "application/json");
+        res.set("Cache-Control", "no-store");
+        res.send(data);
+        return;
+      }
+
+      if (key === "korean-library-bundle.json") {
+        const filePath = path.join(__dirname, "..", "..", "client", "public", "korean-library-bundle.json");
+        const data = readFileSync(filePath, "utf8");
+        res.set("Content-Type", "application/json");
+        res.set("Cache-Control", "no-store");
+        res.send(data);
         return;
       }
 

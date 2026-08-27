@@ -1,0 +1,31 @@
+{
+  "id": "korean-library-bundle",
+  "title": "한국어 학습 자료 번들",
+  "type": "번들",
+  "tier": "Mixed",
+  "sourcePath": "korean-library",
+  "summary": "다양한 주제의 한국어 학습 자료가 포함된 번들입니다.",
+  "attribution": {
+    "repository": "TRACE//LAB",
+    "license": "AGPL-3.0",
+    "notice": "Demo bundle for free deployment"
+  },
+  "documents": [
+    {
+      "path": "README.md",
+      "title": "소개",
+      "content": "# 한국어 학습 자료 번들\n\n이 번들은 환경변수 없이 제공되는 데모 자료입니다.\n\n실제 학습 콘텐츠를 보려면 `BUILT_IN_FORGE_API_URL` 및 `BUILT_IN_FORGE_API_KEY` 를 설정하세요."
+    },
+    {
+      "path": "grammar-intro.md",
+      "title": "문법 소개",
+      "content": "## 한글 자모\n\n한글은 자음과 모음의 조합으로 이루어져 있습니다.\n\n## 기본 문형\n\n- A는 B이다.\n- C는 D이다."
+    },
+    {
+      "path": "vocab-list.md",
+      "title": "어휘 목록",
+      "content": "### 일상 어휘\n- 안녕하세요\n- 감사합니다\n- 죄송합니다"
+    }
+  ],
+  "sourceFiles": []
+}
