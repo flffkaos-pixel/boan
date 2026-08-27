@@ -31,8 +31,8 @@ import "../library-archive.css";
 import "../library-checklist.css";
 import "../library-practice-guide.css";
 
-const MANIFEST_URL = "/fallback-manifest.json";
-const SOURCE_PACKAGE_URL = "/fallback-bundle.json";
+const MANIFEST_URL = "/korean-library-manifest.json";
+const SOURCE_PACKAGE_URL = "/korean-library-bundle.json";
 
 type LibraryManifest = {
   repository: string;
