@@ -4,9 +4,20 @@
   "notice": "Free deployment 학습 자료",
   "licenseText": "AGPL-3.0",
   "storageNotice": "Storage disabled in free mode",
-  "bundleCount": 3,
+  "bundleCount": 4,
   "defaultLanguage": "ko",
   "items": [
+    {
+      "id": "cybersecurity-projects-ko",
+      "title": "사이버보안 프로젝트 70선",
+      "type": "프로젝트",
+      "tier": "Foundations",
+      "summary": "Foundations부터 Advanced까지 70개의 사이버보안 프로젝트를 한국어로 정리한 자료입니다.",
+      "sourcePath": "cybersecurity-projects",
+      "documentCount": 1,
+      "sourceCount": 0,
+      "bundleUrl": "/manus-storage/korean-cybersecurity-bundle.json"
+    },
     {
       "id": "kr-intro-001",
       "title": "한글 기초 문법",

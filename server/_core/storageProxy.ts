@@ -34,6 +34,29 @@ export function registerStorageProxy(app: Express) {
         return;
       }
 
+      if (key === "korean-cybersecurity-bundle.json") {
+        const mdPath = path.join(__dirname, "..", "..", "client", "public", "korean-cybersecurity-projects.md");
+        const md = readFileSync(mdPath, "utf8");
+        const bundle = {
+          id: "cybersecurity-projects-ko",
+          title: "사이버보안 프로젝트 70선",
+          type: "프로젝트",
+          tier: "Foundations",
+          sourcePath: "cybersecurity-projects",
+          summary: "Foundations부터 Advanced까지 70개의 사이버보안 프로젝트를 한국어로 정리한 자료입니다.",
+          attribution: { repository: "CarterPerez-dev/Cybersecurity-Projects", license: "AGPL-3.0", notice: "한국어 번역본" },
+          translation: { language: "ko", originalLanguage: "en", notice: "문서 설명은 한국어 번역을 기본으로 제공합니다." },
+          documents: [
+            { path: "korean-cybersecurity-projects.md", title: "사이버보안 프로젝트 전체", content: md }
+          ],
+          sourceFiles: []
+        };
+        res.set("Content-Type", "application/json");
+        res.set("Cache-Control", "no-store");
+        res.send(JSON.stringify(bundle));
+        return;
+      }
+
       if (key === "korean-library-manifest.json") {
         const filePath = path.join(__dirname, "..", "..", "client", "public", "korean-library-manifest.json");
         const data = readFileSync(filePath, "utf8");
