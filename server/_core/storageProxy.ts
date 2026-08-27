@@ -25,6 +25,15 @@ export function registerStorageProxy(app: Express) {
         return;
       }
 
+      if (key === "korean-cybersecurity-projects.md") {
+        const filePath = path.join(__dirname, "..", "..", "client", "public", "korean-cybersecurity-projects.md");
+        const data = readFileSync(filePath, "utf8");
+        res.set("Content-Type", "text/markdown; charset=utf-8");
+        res.set("Cache-Control", "no-store");
+        res.send(data);
+        return;
+      }
+
       if (key === "korean-library-manifest.json") {
         const filePath = path.join(__dirname, "..", "..", "client", "public", "korean-library-manifest.json");
         const data = readFileSync(filePath, "utf8");
